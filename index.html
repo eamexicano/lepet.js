@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>лепет</title>  
+  <style>
+  :root {
+    font-size: 1.25rem;
+  }
+
+  *, *:before, *:after {
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+      -moz-user-select: none; -webkit-user-select: none; user-select: none;
+   }
+
+  body {
+    width: 80%;
+    min-width: 320px;
+    margin: 0 auto 1rem auto;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.42857143;
+    color: #151515;
+    background: #fff;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  h1 {
+    margin: 0.5rem auto;
+    padding-bottom: 0.5rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    color: #000;
+  }
+
+  p {
+    font-size: 0.80rem;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .links {
+    margin: 1rem; padding: 0.5rem 0;
+  }
+  
+  .links a {
+      margin: 0 1rem;
+  }
+  
+  .custom {
+      background: lime;
+  }
+  
+  </style>
+</head>
+<body>
+  <section class='container'>
+    <h1 id='title'>Título</h1>
+    <p id='main' class='center'>
+        Contenido Principal
+    </p>
+    <p id='secondary' class='center'>
+    <span class='custom'>Contenido Secundario</span>        
+    </p>
+    <p class='center links'>
+      <a href='#es' class='locale'>es</a> 
+      <a href='#ru' class='locale'>ру</a> 
+    </p>
+  </section>
+      <script src='js/lepet.js'></script>
+</body>
+</html>
