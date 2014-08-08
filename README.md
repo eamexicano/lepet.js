@@ -21,36 +21,39 @@ En la parte superior de lepet.js seleccionar el nodo por id. Se puede utilizar o
 En el arreglo content agregar objetos que van a tener la siguiente estructura:  
 
 {   
-  locale: 'es',   
-  clave: 'valor',    
-  nodo: 'Contenido'   
+  &nbsp;&nbsp;locale: 'es',   
+  &nbsp;&nbsp;clave: 'valor',    
+  &nbsp;&nbsp;nodo: 'Contenido'   
 }
 
-La linea locale es el nombre del idioma a traducir. En este caso utilicé el código <a href='http://www.loc.gov/standards/iso639-2/php/code_list.php' target='_blank'>ISO 639-1</a>.
-Otra opción - que no he probado - es agregar el <a href='https://www.iso.org/obp/ui/#search' target='_blank'>código ISO del país</a> si se requiere más precisión en las traducciones que comparten un idioma. Por ejemplo tener contenido en inglés de Estados Unidos además de contenido inglés de Reino Unido. Referencia de los códigos en <a href='https://wiki.mozilla.org/L10n:Locale_Codes' target='_blank'>Mozilla.</a>.
+La linea locale es el nombre del idioma a traducir. En este caso utilicé el código 
+[ISO 639-1](http://www.loc.gov/standards/iso639-2/php/code_list.php).
+Otra opción - que no he probado - es agregar el [código ISO del país](https://www.iso.org/obp/ui/#search) si se requiere más precisión en las traducciones que comparten un idioma. Por ejemplo tener contenido en inglés de Estados Unidos además de contenido inglés de Reino Unido. Referencia de los códigos en [Mozilla](https://wiki.mozilla.org/L10n:Locale_Codes).
 
 Las claves corresponden a los nodos del documento HTML que se van a traducir (y que deben estar en la parte superior del script seleccionados).  
 El valor contiene la traducción que van a utilizar para el idioma en particular.     
 
 var content = [  
-  {     
-    locale: 'es',   
-    title: "Título",    
-    main: "Contenido Principal",    
-    secondary: "<span class='custom'>Contenido Secundario.</span>"  
-  },    
-  {     
-    locale: 'ru',   
-    title: "Название",  
-    main: "основное содержание",    
-    secondary: "<span class='custom'>второй содержание.</span>"      
-  }     
+&nbsp;&nbsp;{     
+&nbsp;&nbsp;&nbsp;&nbsp;locale: 'es',   
+&nbsp;&nbsp;&nbsp;&nbsp;title: "Título",    
+&nbsp;&nbsp;&nbsp;&nbsp;main: "Contenido Principal",    
+&nbsp;&nbsp;&nbsp;&nbsp;secondary: "`<span class='custom'>`Contenido Secundario.`</span>`"  
+&nbsp;&nbsp;},    
+&nbsp;&nbsp;{     
+&nbsp;&nbsp;&nbsp;&nbsp;locale: 'ru',   
+&nbsp;&nbsp;&nbsp;&nbsp;title: "Название",  
+&nbsp;&nbsp;&nbsp;&nbsp;main: "основное содержание",    
+&nbsp;&nbsp;&nbsp;&nbsp;secondary: "`<span class='custom'>`второй содержание.`</span>`"      
+&nbsp;&nbsp;}     
 ];   
 
-Por último hay que agregar los vínculos que van a actualizar el documento con las traducciones.     Cada vínculo debe contar con el atributo class="locale". 
+El contenido de las traducciones puede incluir etiquetas HTML.
+
+Por último hay que agregar los vínculos que van a actualizar el documento con las traducciones.   Cada vínculo debe contar con el atributo class="locale". 
 El atributo href debe ser # junto con el código del idioma del cuál va a utilizar la traducción.
 
-<a href='#es' class='locale'>es</a>
-<a href='#en' class='locale'>en</a>
+`<a href='#es' class='locale'>es</a>`   
+`<a href='#en' class='locale'>en</a>`
 
-lepet.js utiliza <a href='http://www.opensource.org/licenses/MIT' target='_blank'>licencia MIT</a>.
+lepet.js utiliza [licencia MIT](http://www.opensource.org/licenses/MIT).
