@@ -27,7 +27,10 @@ THE SOFTWARE.
 (function () {
     "use strict";
     var available_locales = document.getElementsByClassName('locale');
-
+    /*
+        Selecciona el nodo title del encabezado - head - para que agregue
+        el código del idioma al momento en que el usuario cambia de idioma.
+    */
     var header_title = document.getElementsByTagName('title')[0];
     var original_title = header_title.textContent;
     /*
@@ -37,8 +40,8 @@ THE SOFTWARE.
     var main = document.getElementById('main');
     var secondary = document.getElementById('secondary');
     /*
-    Después del locale se definen las secciones a traducir 
-    y se le asigna la traducción.    
+        Después del locale se definen las secciones a traducir 
+        y se le asigna la traducción.    
     */
     var content = [
       {
@@ -54,8 +57,11 @@ THE SOFTWARE.
         secondary: "<span class='custom'>второй содержание.</span>"
       }
 ];
-
-
+    /*
+        Actualiza el contenido del documento con las traducciones.
+        Para el contenido se utiliza innerHTML para permitir el uso e interpretación 
+        de HTML dentro de las traducciones. 
+    */
     function update_content(href) {
       var current_translation = find_locale(href);
       /*
@@ -66,7 +72,10 @@ THE SOFTWARE.
       main.innerHTML = current_translation.main;
       secondary.innerHTML = current_translation.secondary;  
     }
-
+    /*
+        Busca las traducciones con base en el código del idioma provisto. 
+        Si el código no existe se devuelven las primeras traducciones.
+    */
     function find_locale(locale) {
       for (var i = 0; i < content.length; i++) {
         if (content[i].locale === locale) {
@@ -75,14 +84,24 @@ THE SOFTWARE.
       }
       return content[0];
     }
-
+    /*    
+        Utilizar attach event para tener compatibilidad con Oldie.
+    */
     function attach_link(current_locale) {
         var href = current_locale.href.slice(-2);
-        available_locales[i].addEventListener("click", function () {
-         update_content(href);   
-        });
+        if (window.addEventListener) {
+            available_locales[i].addEventListener("click", function () {
+             update_content(href);   
+            });
+        } else {
+            available_locales[i].attachEvent("click", function () {
+             update_content(href);   
+            });
+        }
     }
-
+    /*
+        El ciclo se va a ejecutar al momento de ejecución porque está dentro de una IIFE.
+    */
     for (var i = 0; i < available_locales.length; i++) {
         attach_link(available_locales[i]);
     }
