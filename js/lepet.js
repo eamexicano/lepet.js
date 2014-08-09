@@ -70,7 +70,7 @@ THE SOFTWARE.
       header_title.innerText =  original_title + " (" + href + ")";
       title.innerHTML = current_translation.title;
       main.innerHTML = current_translation.main;
-      secondary.innerHTML = current_translation.secondary;  
+      secondary.innerHTML = current_translation.secondary;
     }
     /*
         Busca las traducciones con base en el código del idioma provisto. 
@@ -84,6 +84,18 @@ THE SOFTWARE.
       }
       return content[0];
     }
+    
+    /*
+        Agregar la clase active al idioma que se está visualizando.
+        Se tiene que crear en CSS
+    */
+    function highlight_current_locale(all, current) {
+        for (var i = 0; i < all.length; i++) {
+            all[i].className = 'locale';
+        }
+        current.className = 'locale active';
+    }
+    
     /*    
         Utilizar attach event para tener compatibilidad con Oldie.
     */
@@ -91,11 +103,13 @@ THE SOFTWARE.
         var href = current_locale.href.slice(-2);
         if (window.addEventListener) {
             available_locales[i].addEventListener("click", function () {
-             update_content(href);   
+                 highlight_current_locale(available_locales, current_locale);
+                 update_content(href);
             });
         } else {
             available_locales[i].attachEvent("click", function () {
-             update_content(href);   
+                 highlight_current_locale(available_locales, current_locale);
+                 update_content(href);   
             });
         }
     }
