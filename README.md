@@ -55,7 +55,7 @@ Por último hay que agregar los vínculos que van a actualizar el documento con 
 El atributo href debe ser # junto con el código del idioma del cuál va a utilizar la traducción.
 
 `<a href='#es' class='locale'>es</a>`   
-`<a href='#en' class='locale'>en</a>`
+`<a href='#ru' class='locale'>ru</a>`
 
 Abrir el archivo index.html en el navegador. Es una referencia del uso básica para el 
 contenido del documento HTML (tanto texto como atributos en los nodos). El archivo lepet.js contiene traducciones que hacen referencia a los nodos y al contenido de este documento. 
