@@ -2,7 +2,8 @@ lepet.js
 ========
 
 lepet.js es una librería que permite incluir traducciones a un documento HTML.  
-Está escrito es JavaScript se puede utilizar con cualquier librería o framework como <a href='http://prototypejs.org/' target='_blank'>PrototypeJS</a> o <a href='http://www.jquery.com' target='_blank'>jQuery</a>.
+Está escrito es JavaScript se puede utilizar con cualquier librería o framework como 
+[PrototypeJS](http://prototypejs.org/) o [jQuery](http://www.jquery.com).
 
 ¿лепет.js?
 -----------
@@ -15,7 +16,7 @@ Uso
 --------------
 
 Descargar lepet.js  
-Incluir lepet.js en la parte inferior del documento HTML a traducir, antes de cerrar la etiqueta <body>.    
+Incluir lepet.js en la parte inferior del documento HTML a traducir, antes de cerrar la etiqueta `<body>`.    
 En el documento HTML, agregar el atributo id (se puede agregar otro atributo) a los nodos cuyo contenido va a ser traducido.    
 En la parte superior de lepet.js seleccionar el nodo por id. Se puede utilizar otro selector, lo importante es que el nodo seleccionado corresponda al que se va a traducir.    
 En el arreglo content agregar objetos que van a tener la siguiente estructura:  
