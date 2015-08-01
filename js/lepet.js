@@ -27,12 +27,14 @@ THE SOFTWARE.
     var content = [
       {
         locale: 'es',
+        doclanguage: 'es-MX',
         title: "Título",
         main: "Contenido Principal",
         secondary: "<span class='custom'>Contenido Secundario.</span>"
       },
       {
         locale: 'ru',
+        doclanguage: 'ru-RU',
         title: "Название",
         main: "основное содержание",
         secondary: "<span class='custom'>второй содержание.</span>"
@@ -63,10 +65,17 @@ THE SOFTWARE.
         de HTML dentro de las traducciones. 
     */
     function update_content(href) {
-      var current_translation = find_locale(href);
+      var current_translation = find_locale(href);      
       /*
           Asignar a los nodos para traducir el contenido de la traducción. 
       */
+      
+      if (current_translation.hasOwnProperty('doclanguage')) {
+        main_document.lang = current_translation.doclanguage;
+      } else {
+        main_document.lang = current_translation.locale;
+      }
+      
       header_title.innerText =  original_title + " (" + href + ")";
       title.innerHTML = current_translation.title;
       main.innerHTML = current_translation.main;
