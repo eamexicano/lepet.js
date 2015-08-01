@@ -22,8 +22,25 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-
 */
+
+    var content = [
+      {
+        locale: 'es',
+        title: "Título",
+        main: "Contenido Principal",
+        secondary: "<span class='custom'>Contenido Secundario.</span>"
+      },
+      {
+        locale: 'ru',
+        title: "Название",
+        main: "основное содержание",
+        secondary: "<span class='custom'>второй содержание.</span>"
+      }
+    ];
+
+
+
 (function () {
     "use strict";
     var available_locales = document.getElementsByClassName('locale');
@@ -39,24 +56,7 @@ THE SOFTWARE.
     var title = document.getElementById('title');
     var main = document.getElementById('main');
     var secondary = document.getElementById('secondary');
-    /*
-        Después del locale se definen las secciones a traducir 
-        y se le asigna la traducción.    
-    */
-    var content = [
-      {
-        locale: 'es',
-        title: "Título",
-        main: "Contenido Principal",
-        secondary: "<span class='custom'>Contenido Secundario.</span>"
-      },
-      {
-        locale: 'ru',
-        title: "Название",
-        main: "основное содержание",
-        secondary: "<span class='custom'>второй содержание.</span>"
-      }
-];
+
     /*
         Actualiza el contenido del documento con las traducciones.
         Para el contenido se utiliza innerHTML para permitir el uso e interpretación 
@@ -119,4 +119,4 @@ THE SOFTWARE.
     for (var i = 0; i < available_locales.length; i++) {
         attach_link(available_locales[i]);
     }
-}());
+}(content));
