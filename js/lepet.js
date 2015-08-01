@@ -45,20 +45,38 @@ THE SOFTWARE.
 
 (function () {
     "use strict";
+    window.lepet_nodes = {};
+    var keys = [];    
     var main_document = document.getElementsByTagName('html')[0];    
     var available_locales = document.getElementsByClassName('locale');
-    /*
-        Selecciona el nodo title del encabezado - head - para que agregue
-        el código del idioma al momento en que el usuario cambia de idioma.
+ 
+    /* 
+      Guardar las claves del objeto "content" 
     */
-    var header_title = document.getElementsByTagName('title')[0];
-    var original_title = header_title.textContent;
+
+      for (var i = 0; i < content.length; i++) { 
+        keys.push(Object.keys(content[i]));
+      }
+  
     /*
-        Nodos del documento que tienen contenido para ser traducido.
+      Con las claves, intentar obtener los nodos del dom por id, class o tag 
+      para que sean  actualizados al momento de cambiar de idioma. 
     */
-    var title = document.getElementById('title');
-    var main = document.getElementById('main');
-    var secondary = document.getElementById('secondary');
+      
+      for (var i = 0; i < keys.length; i++) {
+        for (var j = 0; j < keys[i].length; j++) {
+          var dom_node = keys[i][j].toString();
+          if (dom_node !== 'locale' && dom_node !== 'doclanguage') {
+            if (document.getElementById(dom_node) !== null && !lepet_nodes.hasOwnProperty(dom_node)) {
+              lepet_nodes[dom_node] = document.getElementById(dom_node);
+            } else if (document.getElementsByClassName(dom_node).length > 0 && !lepet_nodes.hasOwnProperty(dom_node)) {
+              lepet_nodes[dom_node] = document.getElementsByClassName(dom_node)[0];
+            } else if (document.getElementsByTagName(dom_node).length > 0 && !lepet_nodes.hasOwnProperty(dom_node)) {
+              lepet_nodes[dom_node] = document.getElementsByTagName(dom_node)[0];
+            }
+          }
+        }
+      }
 
     /*
         Actualiza el contenido del documento con las traducciones.
@@ -77,10 +95,16 @@ THE SOFTWARE.
         main_document.lang = current_translation.locale;
       }
       
-      header_title.innerText =  original_title + " (" + href + ")";
-      title.innerHTML = current_translation.title;
-      main.innerHTML = current_translation.main;
-      secondary.innerHTML = current_translation.secondary;
+     var dom_nodes = Object.keys(lepet_nodes);
+     
+     for (var i = 0; i < dom_nodes.length; i++) {
+       if (dom_nodes[i] !== 'title') {
+         lepet_nodes[dom_nodes[i]].innerHTML = current_translation[dom_nodes[i]];
+       } else {
+         lepet_nodes[dom_nodes[i]].innerHTML = current_translation[dom_nodes[i]] + " (" + href + ")";
+       }        
+     }
+     
     }
     /*
         Busca las traducciones con base en el código del idioma provisto. 
