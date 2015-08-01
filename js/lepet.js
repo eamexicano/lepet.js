@@ -24,22 +24,22 @@ THE SOFTWARE.
 
 */
 
-    var content = [
-      {
-        locale: 'es',
-        doclanguage: 'es-MX',
-        title: "Título",
-        main: "Contenido Principal",
-        secondary: "<span class='custom'>Contenido Secundario.</span>"
-      },
-      {
-        locale: 'ru',
-        doclanguage: 'ru-RU',
-        title: "Название",
-        main: "основное содержание",
-        secondary: "<span class='custom'>второй содержание.</span>"
-      }
-    ];
+var content = [
+  {
+    locale: 'es',
+    doclanguage: 'es-MX',
+    title: "Título",
+    main: "Contenido Principal",
+    secondary: "<span class='custom'>Contenido Secundario.</span>"
+  },
+  {
+    locale: 'ru',
+    doclanguage: 'ru-RU',
+    title: "Название",
+    main: "основное содержание",
+    secondary: "<span class='custom'>второй содержание.</span>"
+  }
+];
 
 
 
@@ -49,15 +49,20 @@ THE SOFTWARE.
     var keys = [];    
     var main_document = document.getElementsByTagName('html')[0];    
     var available_locales = document.getElementsByClassName('locale');
- 
+    var lepet = document.getElementById('lepet');
+    var locale_links = ""; 
+     
     /* 
       Guardar las claves del objeto "content" 
     */
 
       for (var i = 0; i < content.length; i++) { 
         keys.push(Object.keys(content[i]));
+        locale_links += "<a href='#" + content[i].locale + "' class='locale'>" + content[i].locale + "</a>";        
       }
   
+      lepet.innerHTML = locale_links;
+      
     /*
       Con las claves, intentar obtener los nodos del dom por id, class o tag 
       para que sean  actualizados al momento de cambiar de idioma. 
