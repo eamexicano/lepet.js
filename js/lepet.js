@@ -24,7 +24,7 @@ THE SOFTWARE.
 
 */
 
-(function () {
+(function lepet(content) {
     "use strict";
     window.lepet_nodes = {};
     var keys = [];    
