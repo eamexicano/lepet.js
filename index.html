@@ -1,5 +1,5 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang='es-MX'>
 <head>
 <meta charset='utf-8'>
 <title>лепет</title>  
@@ -9,8 +9,12 @@
   }
 
   *, *:before, *:after {
-    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
-      -moz-user-select: none; -webkit-user-select: none; user-select: none;
+       -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+            box-sizing: border-box;
+            -moz-user-select: none; 
+         -webkit-user-select: none; 
+                 user-select: none;
    }
 
   body {
@@ -25,6 +29,7 @@
 
   .container {
     padding: 0 1rem;
+    position: relative;
   }
 
   h1 {
@@ -39,41 +44,54 @@
 
   p {
     font-size: 0.80rem;
-    margin: 0 auto;
-    width: 100%;
+    margin: 1em auto;
+    width: 100px;
   }
-  
-  .links {
-    margin: 1rem; padding: 0.5rem 0;
-  }
-  
-  .links a {
-      margin: 0 1rem;
-  }
-  
+      
   .custom {
-      background: lime;
+    background: lime;
+    padding: 0.2rem; 
+  }
+    
+  /* Lepet links style */
+  #lepet {
+    position: absolute;
+    top: 0.9rem;
+    right: 0;
+    margin: 1rem; 
+    padding: 0.5rem 0;
+    background: blue;
   }
   
-  .active {
-      font-weight: bold;
+  #lepet a {
+    margin: 0 0.2rem;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: red;
+    background: yellow;    
+    border: 1px dotted red;
+  }
+  
+  #lepet a.active {
+    color: yellow;
+    background: red;
+    font-weight: bold;
+    border: 1px dotted yellow;
   }
   
   </style>
 </head>
 <body>
   <section class='container'>
-    <h1 id='title'>Título</h1>
+    <h1 id='document_title'>Título</h1>
     <p id='main' class='center'>
-        Contenido Principal
+      Contenido Principal.
     </p>
     <p id='secondary' class='center'>
-    <span class='custom'>Contenido Secundario</span>        
+      <span class='custom'>Contenido Secundario.</span>
     </p>
-    <p class='center links'>
-      <a href='#es' class='locale'>es</a> 
-      <a href='#ru' class='locale'>ру</a> 
-    </p>
+    <div id='lepet'></div>
   </section>
       <script src='js/lepet.js'></script>
 </body>
