@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang='es-MX'>
+  <head>
+    <meta charset='utf-8'>
+    <meta name=viewport content="width=device-width, initial-scale=1">    
+    <title>eamexicano</title>
+    <link rel="author" href="https://plus.google.com/113138471997626185587?rel=author">
+    <link rel="canonical" href="http://www.eamexicano.com">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+     *, *:before, *:after {
+            -moz-box-sizing: border-box;
+         -webkit-box-sizing: border-box;
+                 box-sizing: border-box;
+                 -moz-user-select: none;
+              -webkit-user-select: none;
+                      user-select: none;
+            transition:opacity 2s ease;
+        }
+        
+        :root {
+          font-size: 0.85rem;
+        }
+
+       html, body {
+         margin: 0 auto;
+         padding: 0;
+         font-family: "helvetica neue";
+         background: #000;
+         vertical-align: baseline;
+         line-height: 1.5;
+         width: 100%;
+         height: 100%;
+         position: relative;
+       }
+
+       body {
+         padding: 0 1rem;
+         max-width: 60rem;
+       }
+       
+      .main {
+        position: relative;
+       }
+      
+      h1#document_title {
+        color: #e0e0e0;
+        text-align:center;
+        margin:0;
+        height: 6rem;
+        line-height: 6rem;
+        font-size: 3rem;
+        width: 100%;
+      }
+      
+      .content {
+        text-align: center;
+        color: rgb(0, 0, 0);
+        background-color: rgb(255, 255, 255);
+        border: 5px solid rgb(255, 0, 0);
+        padding: 0.6rem;
+        width: 40%;
+        margin: 0 auto;
+        font-weight: bold;
+        border-radius: 4px;        
+        -webkit-transform: rotate(-1deg);
+        -moz-transform: rotate(-1deg);
+        -o-transform: rotate(-1deg);
+        -ms-transform: rotate(-1deg);  
+        transform: rotate(-1deg);              
+      }
+
+      a {
+        display:inline-block;
+        color:#454545;
+        text-decoration:none;
+      }
+
+      a:hover{
+        opacity:1;
+      }
+          
+      figure {
+        position: relative;
+        display: block;
+        max-width: 60em;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .reference {
+        width: 50%;
+        max-width: 50%;
+        margin: 0 auto;
+        display: block;
+      }
+
+      figcaption {
+        width: 50%;
+        padding: 0.5rem;
+        text-align: right;
+        font-style: italic;
+        color:#454545;
+        margin: 0 auto;
+      }
+
+      footer {
+        padding: 1rem;
+        text-align: right;
+        color:#454545;
+      }
+
+      .languages {
+        position: relative;
+      }
+
+      #lepet {
+        margin: 1rem; 
+        padding: 0.5rem 0;
+        text-align: right;
+      }
+
+      #lepet a {
+        margin: 0 0.2rem;
+        padding: 0.2rem 0.5rem;
+        text-decoration: none;
+        border-bottom: 2px solid rgba(0,0,0,0);
+        transition: all 1s;
+      }
+      
+      #lepet a:hover {
+        border-bottom: 2px solid yellow;
+      }
+
+      #lepet a.active {
+        color: #e0e0e0;
+        border-bottom: 2px solid red;
+      }
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 id='document_title'>eamexicano - es</h1>
+    </header>
+    <section class='main'>
+      <figure>
+        <img class='reference' src="img/jirafa.jpg" alt="Jirafa">
+        <figcaption>Parque Praskim.<br>Varsovia, Polonia.</figcaption>
+      </figure>
+      <p class='content'>
+        Hablamos español
+      </p>
+    </section>
+    <article class='languages'>
+      <div id='lepet'></div>
+    </article>
+    <footer>
+      <a href='http://www.eamexicano.com' target='_blank'>eamexicano</a>
+    </footer>
+    </section>
+    <script>
+    var content = [
+      {
+        locale: 'es',
+        doclanguage: 'es-MX',
+        title: "eamexicano",
+        document_title: "eamexicano - es",
+        content: "Hablamos español",
+        figcaption: "Parque Praskim.<br>Varsovia, Polonia."
+       },
+      {
+        locale: 'ru',
+        doclanguage: 'ru-RU',
+        title: "eamexicano",
+        document_title: "eamexicano - ru",
+        content: "Мы говорим по-русски",
+        figcaption: "Praskim парк.<br>Варшава, Польша."
+      },
+      {
+        locale: 'fr',
+        doclanguage: 'fr-FR',
+        title: "eamexicano",
+        document_title: "eamexicano - fr",
+        content: "On parle français",
+        figcaption: "Parc Praskim.<br>Varsovie, Pologne." 
+      }  
+    ];
+    </script>
+    <script src='js/lepet.js'></script>
+  </body>
+</html>
