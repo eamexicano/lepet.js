@@ -45,6 +45,7 @@ THE SOFTWARE.
 
 (function () {
     "use strict";
+    var main_document = document.getElementsByTagName('html')[0];    
     var available_locales = document.getElementsByClassName('locale');
     /*
         Selecciona el nodo title del encabezado - head - para que agregue
