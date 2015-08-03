@@ -32,6 +32,7 @@ THE SOFTWARE.
     var available_locales = document.getElementsByClassName('locale');
     var lepet = document.getElementById('lepet');
     var locale_links = ""; 
+    var default_dir = "ltr";
      
         for (var i = 0; i < content.length; i++) { 
           keys.push(Object.keys(content[i]));
@@ -43,7 +44,7 @@ THE SOFTWARE.
       for (var i = 0; i < keys.length; i++) {
         for (var j = 0; j < keys[i].length; j++) {
           var dom_node = keys[i][j].toString();
-          if (dom_node !== 'locale' && dom_node !== 'doclanguage') {
+          if (dom_node !== 'locale' && dom_node !== 'doclanguage' && dom_node !== 'default_dir') {
             if (document.getElementById(dom_node) !== null && !lepet_nodes.hasOwnProperty(dom_node)) {
               lepet_nodes[dom_node] = document.getElementById(dom_node);
             } else if (document.getElementsByClassName(dom_node).length > 0 && !lepet_nodes.hasOwnProperty(dom_node)) {
@@ -64,6 +65,12 @@ THE SOFTWARE.
         main_document.lang = current_translation.locale;
       }
       
+      if (current_translation.hasOwnProperty('dir')) {
+        main_document.dir = current_translation.dir;
+      } else {
+        main_document.dir = default_dir;
+      }
+                  
      var dom_nodes = Object.keys(lepet_nodes);
      
      for (var i = 0; i < dom_nodes.length; i++) {
