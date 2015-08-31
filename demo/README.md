@@ -4,9 +4,9 @@ Referencia de uso de lepet.js
 Tener un documento HTML con el contenido a traducir.
 ----------------------------------------------------   
    
-Es importante que el contenido esté dentro del documento para evitar que se visualice vacío el documento si existen errores.   
-- Latencia al cargar el contenido (lepet.js se incluye al final del documento, entonces depende de cuántos archivos incrustes en tu documento, la velocidad de conexión del usuario, la velocidad de salida de tu hosting, etcétera).   
-- Si hay un error con JavaScript (por ejemplo: utilizar la variable content para almacenar otros valores que no sean la traducción).   
+Es importante que el contenido esté dentro del documento para evitar que se visualice vacío el documento si existen errores como:   
+- Latencia al cargar el contenido - lepet.js se incluye al final del documento, entonces depende de cuántos archivos incrustes en tu documento, la velocidad de conexión del usuario, la velocidad de salida de tu hosting, etcétera -.   
+- Si hay un error con JavaScript - por ejemplo: utilizar la variable content para almacenar otros valores que no sean la traducción -.   
 - Si no se incluyó lepet.js o no existen traducciones.   
    
 Crear un arreglo llamado content.   
@@ -74,6 +74,31 @@ var content = [
   }   
 ];   
 
+**separador**   
+
+Al seleccionar el vínculo de un idioma, de manera predeterminada, se va a actualizar   
+la etiqueta title con el valor que tenga en la traducción más el valor del locale entre paréntesis.  
+
+eamexicano (en)   
+eamexicano (es)   
+
+Si no quieres visualizar el locale o quieres separarlo de manera diferente puedes agregar un objeto lepet_options para ajustar esa funcionalidad. 
+
+var lepet_options = {   
+&nbsp;&nbsp;divider: {   
+&nbsp;&nbsp;&nbsp;&nbsp;enable: false,   
+&nbsp;&nbsp;&nbsp;&nbsp;before: " | ",   
+&nbsp;&nbsp;&nbsp;&nbsp;after: " "   
+&nbsp;&nbsp;&nbsp;&nbsp;}   
+}   
+   
+lepet_options:   
+&nbsp;divider:   
+&nbsp;&nbsp;enable: Si el valor es true se quiere mostrar el locale cuando el usuario seleccione un idioma para visualizar.    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si el valor es false únicamente se visualizará el valor que tiene la etiqueta title en el documento HTML.   
+&nbsp;&nbsp;before: Carácter(es) que se quieren incluir después del título y antes del locale.   
+&nbsp;&nbsp;after: Carácter(es) que se quieren incluir después del locale.   
+   
 Incluir lepet.js **DESPUÉS** de definir el arreglo content - con las traducciones que quieras visualizar -.   
 -------------------------------------------------------------------------------------------------------
 
