@@ -45,7 +45,7 @@ locale, doclanguage, title.
    
 **locale**   
 It is the only attribute needed.    
-Here the language of the translation is defined with the - [iso939-2](http://www.loc.gov/standards/iso639-2/php/code_list.php) - the standard.    
+Here the language of the translation is defined with the - [iso639-1](http://www.loc.gov/standards/iso639-2/php/code_list.php) - the standard.    
 This value will be used as the content of the links that the user will see in the screen and will click to visualize the translation.    
    
 **doclanguage**   
